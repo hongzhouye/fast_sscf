@@ -7,9 +7,9 @@ CXXINCS = -I$(LIBINT_ROOT)/include -I$(LIBINT_ROOT)/libint2 -Ieri -Ihartree-fock
 CXXLIBS = -L$(LIBINT_ROOT)/lib -lint2
 
 
-sigma-scf: main.o sscf_utils.o
+sigma-scf.out: main.o sscf_utils.o
 	$(CXX) $(CXXFLAGS) $(CXXINCS) $(CXXLIBS) \
-		main.o sscf_utils.o -o sigma-scf
+		main.o sscf_utils.o -o sigma-scf.out
 
 main.o: main.cc sscf_utils.h
 	$(CXX) $(CXXFLAGS) $(CXXINCS) $(CXXLIBS) main.cc -c
@@ -18,4 +18,4 @@ sscf_utils.o: sscf_utils.cc sscf_utils.h
 	$(CXX) $(CXXFLAGS) $(CXXINCS) $(CXXLIBS) sscf_utils.cc -c
 
 clean:
-	rm -f *.o sigma-scf
+	rm -f *.o *.out
