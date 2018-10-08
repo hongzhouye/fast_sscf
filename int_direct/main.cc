@@ -193,9 +193,10 @@ int main(int argc, char* argv[])
         Q = C_virt * C_virt.transpose();
 
         if (iter == 1)
-          std::cout << "\n\nIter         E(HF)                 D(E)/E         "
-                       "RMS([F,D])/nn       Time(s)\n";
-        printf(" %02d %17.9f %15.7f %13.5e %13.5e %10.5lf\n", iter, ehf + enuc,
+          std::cout << "\n\nIter         E(HF)              var       "
+                       "D(var)/var   "
+                       "RMS([F,D])/nn   Time(s)\n";
+        printf(" %02d %17.9f %17.9f %13.5e %13.5e %10.5lf\n", iter, ehf + enuc,
                var, vardiff_rel, rms_error, time_elapsed.count());
 
       } while (((vardiff_rel > conv) || (rms_error > conv)) && (iter < maxiter));
